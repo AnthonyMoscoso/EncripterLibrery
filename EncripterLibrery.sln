@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncripterProfiler", "EncripterProfiler\EncripterProfiler.csproj", "{35E8F780-D6E6-406D-8E8E-DC5CA445212C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncripterTest", "EncripterTest\EncripterTest.csproj", "{17171F39-2A91-47D7-8C41-6BB3AFE15DD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35E8F780-D6E6-406D-8E8E-DC5CA445212C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E8F780-D6E6-406D-8E8E-DC5CA445212C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E8F780-D6E6-406D-8E8E-DC5CA445212C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E8F780-D6E6-406D-8E8E-DC5CA445212C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17171F39-2A91-47D7-8C41-6BB3AFE15DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17171F39-2A91-47D7-8C41-6BB3AFE15DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17171F39-2A91-47D7-8C41-6BB3AFE15DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17171F39-2A91-47D7-8C41-6BB3AFE15DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8218203-0B9F-42D7-A824-29EDD73E1ACB}
+	EndGlobalSection
+EndGlobal

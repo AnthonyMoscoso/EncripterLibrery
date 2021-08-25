@@ -46,37 +46,46 @@ namespace Core.Entities.Utilities.Encrypt
             }
         }
 
+     
         /// <summary>
-        /// Descrypt a string value
+        /// 
         /// </summary>
-        /// <param name="value">value to be descrypt</param>
-        /// <returns>value descrypt</returns>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public T DecryptEntity(T entity)
         {
-            if (parameters.Count > 0)
+            if (entity!= null)
             {
-                foreach (string parameter in parameters)
+                if (parameters.Count > 0)
                 {
-                    PropertyInfo property = typeof(T).GetProperty(parameter);
-                    if (property != null)
+                    foreach (string parameter in parameters)
                     {
-                        Type propertyType = typeof(T).GetProperty(parameter).PropertyType;
-                        property.SetValue(entity, Convert.ChangeType( _encrypt.Decrypt(property.GetValue(entity) as string),propertyType), null);
-                    }
-                    else
-                    {
-                        throw new Exception($"parameter {parameter} not was found in {_name}");
+                        PropertyInfo property = typeof(T).GetProperty(parameter);
+                        if (property != null)
+                        {
+                            Type propertyType = typeof(T).GetProperty(parameter).PropertyType;
+                            if (property.GetValue(entity) != null)
+                            {
+                                property.SetValue(entity, Convert.ChangeType(_encrypt.Decrypt(property.GetValue(entity) as string), propertyType), null);
+                            }
+
+                        }
+                        else
+                        {
+                            throw new Exception($"parameter {parameter} not was found in {_name}");
+                        }
                     }
                 }
             }
+  
             return entity;
         }
 
         /// <summary>
-        /// Descrypt a list of entities
+        /// Return the same 
         /// </summary>
-        /// <param name="list">list to be descrypt</param>
-        /// <returns>same entity descrypt</returns>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public IEnumerable<T> DecryptRange(IEnumerable<T> list)
         {
             foreach (T entity in list)
@@ -86,10 +95,10 @@ namespace Core.Entities.Utilities.Encrypt
         }
 
         /// <summary>
-        /// Encrypt entity
+        /// Return the same entity Encrypt
         /// </summary>
-        /// <param name="entity">the entity yo be encrypt</param>
-        /// <returns>same entity encrypt</returns>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public T EncryptEntity(T entity)
         {
             Type type = entity.GetType();
@@ -98,9 +107,13 @@ namespace Core.Entities.Utilities.Encrypt
                 foreach (string parameter in parameters)
                 {
                     PropertyInfo property = type.GetProperty(parameter);
-                    if (property != null)
+                    if (property != null )
                     {
-                        property.SetValue(entity, _encrypt.Encrypt(property.GetValue(entity) as string), null);
+                        if (property.GetValue(entity)!= null)
+                        {
+                            property.SetValue(entity, _encrypt.Encrypt(property.GetValue(entity) as string), null);
+                        }
+                    
                     }
                     else
                     {
@@ -112,10 +125,10 @@ namespace Core.Entities.Utilities.Encrypt
         }
 
         /// <summary>
-        /// Encrypt a list of entities
+        /// Return the same list Encrypt
         /// </summary>
-        /// <param name="list">list to be encrypt</param>
-        /// <returns>same entity encrypt</returns>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public IEnumerable<T> EncryptList(IEnumerable<T> list)
         {
             foreach (T entity in list)
